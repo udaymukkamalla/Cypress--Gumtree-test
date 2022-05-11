@@ -12,7 +12,7 @@ npm install
 
 Commands to run end-to-end tests
 
-npm run test
+npm run cy:open
 
 ## Reports
 
