@@ -14,6 +14,4 @@ Commands to run end-to-end tests
 
 npm run cy:open
 
-## Reports
 
-Reports are generated at the end of the run and written to the `reports` folder
