@@ -1,0 +1,34 @@
+{
+  "name": "inquisitive-automation",
+  "version": "1.0.0",
+  "description": "Gumtree test automation",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test": "npm run pretest && npm run scripts || npm run posttest",
+    "scripts": "cypress run --browser chrome",
+    "delete:reports": "del /f /s /q cypress\\reports 1>nul",
+    "pretest": "npm run delete:reports",
+    "combine-reports": "mochawesome-merge cypress/reports/json/*.json > cypress/reports/mochawesome-report.json",
+    "generate-report": "marge cypress/reports/mochawesome-report.json -f report -o cypress/reports --autoOpen",
+    "posttest": "npm run combine-reports && npm run generate-report",
+    "lint": "eslint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rm": "^0.1.8"
+  },
+  "devDependencies": {
+    "cypress": "^7.7.0",
+    "cypress-multi-reporters": "^1.4.0",
+    "cypress-xpath": "^1.6.2",
+    "eslint": "^7.2.0",
+    "mocha": "^7.1.2",
+    "mocha-junit-reporter": "^2.0.2",
+    "mochawesome": "^6.1.1",
+    "mochawesome-merge": "^4.0.3",
+    "mochawesome-report-generator": "^5.1.0"
+  }
+}
